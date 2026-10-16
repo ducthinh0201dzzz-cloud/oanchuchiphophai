@@ -4,6 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>DEXTER VN SHOP — Key VIP Giá Rẻ</title>
+<meta name="description" content="Shop bán Key VIP DEXTER VN - Hỗ trợ 24/7" />
 <style>
   *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Tahoma,sans-serif}
   body{background:#0a0a12;color:#e6e6f0;line-height:1.6;overflow-x:hidden}
@@ -52,6 +53,19 @@
   .contact p{opacity:.7;margin-bottom:24px}
   footer{border-top:1px solid #1e1e30;padding:26px 0;text-align:center;font-size:13px;opacity:.55}
   @media(max-width:640px){.nav ul{display:none}.hero{padding:60px 0 40px}}
+  /* BOT STATUS PANEL */
+  #botPanel{position:fixed;bottom:0;left:0;right:0;background:#0f0f1c;border-top:2px solid #00e5ff;max-height:40vh;overflow:auto;font-family:monospace;font-size:12px;z-index:9999;padding:10px 14px;display:none}
+  #botPanel.show{display:block}
+  #botPanel .row{padding:2px 0;border-bottom:1px solid #1a1a2c;color:#888}
+  #botPanel .ok{color:#0f0}
+  #botPanel .err{color:#f44}
+  #botPanel .warn{color:#fa0}
+  #botPanel .info{color:#0ff}
+  #botPanel .head{font-weight:bold;font-size:13px;padding-bottom:6px;border-bottom:1px solid #00e5ff;margin-bottom:6px;display:flex;justify-content:space-between;align-items:center}
+  #botPanel button{background:#1a1a2c;color:#00e5ff;border:1px solid #00e5ff;padding:4px 10px;border-radius:6px;cursor:pointer;font-size:11px}
+  #botToggle{position:fixed;bottom:14px;right:14px;background:linear-gradient(90deg,#00e5ff,#a855f7);color:#0a0a12;padding:10px 16px;border-radius:24px;font-weight:bold;font-size:13px;cursor:pointer;z-index:10000;border:0;box-shadow:0 4px 16px rgba(0,229,255,.4)}
+  #botToggle.off{background:#f44;color:#fff}
+  #botToggle.wait{background:#fa0;color:#000}
 </style>
 </head>
 <body>
@@ -122,36 +136,50 @@
   <div class="container">© 2025 DEXTER VN — All rights reserved. Powered by DEXTER SYSTEM.</div>
 </footer>
 
+<!-- NÚT + PANEL LOG BOT -->
+<button id="botToggle" onclick="document.getElementById('botPanel').classList.toggle('show')">🤖 BOT</button>
+<div id="botPanel">
+  <div class="head"><span>📡 BOT LOG</span><button onclick="document.getElementById('botPanel').classList.remove('show')">✕ Đóng</button></div>
+  <div id="botLog"></div>
+</div>
+
 <script>
-/* ═══════════════════════════════════════════════════════════════
-   DEXTER VN BOT ENGINE
-   → Lấy token MỚI tại @BotFather (token cũ đã bị Telegram revoke)
-   → Dán token mới vào dòng TOKEN bên dưới
-   ═══════════════════════════════════════════════════════════════ */
-(function(_w){
+(function(){
 'use strict';
 
-/* ─── CẤU HÌNH (THAY TOKEN MỚI VÀO ĐÂY) ─── */
-var TOKEN    = '8943826355:AAGzVyDln7Y-cb5qp_s-1fDeUlajTUKzg98';
-var MASTER   = '8292423061';
-var GROUP    = '-1004300806663';
-var RTDB     = 'https://sever-key-dexter-vn-default-rtdb.asia-southeast1.firebasedatabase.app';
-var API_TOK  = 'PF1heF14XihiG0w8JU1RFkUjDgg9E0oKKAMkB25yYhdzFxg=';
-
-console.log('%c[DEXTER] Bot engine loading...', 'color:#0ff;font-weight:bold');
-console.log('[DEXTER] Token length:', TOKEN.length);
-if (TOKEN === 'DÁN_TOKEN_MỚI_VÀO_ĐÂY' || TOKEN.length < 20) {
-  console.error('%c[DEXTER] ❌ CHƯA THAY TOKEN! Vào @BotFather → /mybots → Revoke token → lấy token mới', 'color:#f00;font-weight:bold;font-size:14px');
-  return;
-}
+/* ═══════════════════════════════════════════════════
+   CẤU HÌNH — TOKEN ĐỂ NGUYÊN VĂN (không mã hóa)
+   ═══════════════════════════════════════════════════ */
+var TOKEN   = '8943826355:AAGzVyDln7Y-cb5qp_s-1fDeUlajTUKzg98';
+var MASTER  = '8292423061';
+var GROUP   = '-1004300806663';
+var RTDB    = 'https://sever-key-dexter-vn-default-rtdb.asia-southeast1.firebasedatabase.app';
+var API_TOK = 'PF1heF14XihiG0w8JU1RFkUjDgg9E0oKKAMkB25yYhdzFxg=';
 
 var BASE = 'https://api.telegram.org/bot' + TOKEN;
 
-/* ─── HTTP HELPERS ─── */
+/* ─── LOG PANEL ─── */
+var LOG = document.getElementById('botLog');
+function log(cls, msg){
+  var t = new Date().toLocaleTimeString();
+  var d = document.createElement('div');
+  d.className = 'row ' + cls;
+  d.textContent = '[' + t + '] ' + msg;
+  LOG.appendChild(d);
+  LOG.scrollTop = LOG.scrollHeight;
+  console.log('[DEXTER ' + cls + ']', msg);
+}
+function setToggle(state, text){
+  var b = document.getElementById('botToggle');
+  b.className = state;
+  b.textContent = text;
+}
+
+/* ─── HTTP ─── */
 function dbGet(p){
   return fetch(RTDB+p).then(function(r){return r.text()})
     .then(function(t){try{return t!=='null'?JSON.parse(t):null}catch(e){return null}})
-    .catch(function(e){console.warn('[DB GET]',e);return null});
+    .catch(function(){return null});
 }
 function dbPut(p,b){
   return fetch(RTDB+p,{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify(b)})
@@ -163,10 +191,7 @@ function tgCall(method,payload){
     method:'POST',
     headers:{'Content-Type':'application/json'},
     body:JSON.stringify(payload||{})
-  }).then(function(r){return r.json()}).catch(function(e){
-    console.warn('[TG]',method,'failed:',e);
-    return null;
-  });
+  }).then(function(r){return r.json()}).catch(function(e){return {ok:false,error:e.message}});
 }
 function send(cid,text,opt){
   var p={chat_id:cid,text:text};
@@ -267,6 +292,7 @@ async function genKey(c,wz){
   send(c,r,{parse_mode:'HTML'});
   if(c!==MASTER)send(MASTER,r,{parse_mode:'HTML'});
   if(c!==GROUP)send(GROUP,r,{parse_mode:'HTML'});
+  log('ok','Đã tạo '+list.length+' key — reply đã gửi về chat '+c);
 }
 async function lockKey(c,ks){
   var n=ks.trim().toUpperCase().replace(/\./g,'_');
@@ -311,8 +337,9 @@ async function thuQuyen(c,tg){var t=tg.replace('@','').trim();await dbDel('/tele
 async function onCB(cq){
   var cid=cq.message.chat.id.toString();
   var da=cq.data,wz=gw(cid),sid=cq.from.id.toString();
+  log('info','Callback: '+da+' từ '+sid);
   var ok=await isAuth(sid,cid);
-  if(!ok){ansCB(cq.id);return}
+  if(!ok){log('warn','Không có quyền: '+sid);ansCB(cq.id);return}
   ansCB(cq.id);
   if(da==='p1'){wz.prefix='ducthinh-vip-dextervn-';return pDur(cid)}
   if(da==='p2'){wz.prefix='nguyentan-vip-dextervn-';return pDur(cid)}
@@ -331,8 +358,9 @@ async function onCB(cq){
 async function onMsg(m){
   if(!m.text)return;
   var cid=m.chat.id.toString(),sid=m.from.id.toString(),txt=m.text.trim();
+  log('info','Tin nhắn: "'+txt+'" từ '+sid+' chat '+cid);
   var ok=await isAuth(sid,cid);
-  if(!ok)return send(cid,'⛔ <b>TỪ CHỐI TRUY CẬP:</b> Bạn không có quyền sử dụng Bot!\nVui lòng liên hệ @ducthinhdz02.',{parse_mode:'HTML'});
+  if(!ok){log('warn','Không có quyền truy cập: '+sid);return send(cid,'⛔ <b>TỪ CHỐI TRUY CẬP:</b> Bạn không có quyền sử dụng Bot!\nVui lòng liên hệ @ducthinhdz02.',{parse_mode:'HTML'})}
   var wz=gw(cid),p=txt.split(/\s+/),cmd=p[0].toLowerCase();
 
   if(cmd==='/start'||cmd==='/help'){wz.step='NONE';return help(cid)}
@@ -355,55 +383,101 @@ async function onMsg(m){
 }
 
 /* ─── BOOT ─── */
-console.log('%c[DEXTER] Đang kết nối Telegram...', 'color:#0ff');
-tgCall('getMe',{}).then(function(r){
-  if(r&&r.ok){
-    console.log('%c[DEXTER] ✅ Bot OK: @'+r.result.username+' (id='+r.result.id+')', 'color:#0f0;font-weight:bold');
-    tgCall('setMyCommands',{commands:[
-      {command:'newkey',description:'Quy trình tạo Key VIP 4 loại mới'},
-      {command:'taokey',description:'Khởi động quy trình tạo Key VIP'},
-      {command:'chon2dangkeymuontao',description:'Chọn 1 trong 4 loại Tiền Tố Key'},
-      {command:'khoakey',description:'Khóa mã Key VIP'},
-      {command:'mokhoakey',description:'Mở khóa mã Key VIP'},
-      {command:'xoakey',description:'Xóa mã Key khỏi Server'},
-      {command:'listkey',description:'Xem danh sách Key'},
-      {command:'capquyenadmin',description:'Cấp quyền Admin Telegram'},
-      {command:'thuhoiquyenadmin',description:'Thu hồi quyền Admin Telegram'},
-      {command:'help',description:'Xem Menu Hướng Dẫn'}
-    ]}).then(function(){
-      console.log('%c[DEXTER] ✅ Đã đăng ký commands. Bắt đầu polling...', 'color:#0f0');
-      startPolling();
-    });
-  } else {
-    console.error('%c[DEXTER] ❌ TOKEN SAI HOẶC ĐÃ BỊ REVOKE!', 'color:#f00;font-weight:bold;font-size:16px');
-    console.error('[DEXTER] Response:', r);
-    console.error('[DEXTER] → Vào @BotFather → /mybots → chọn bot → Revoke token → lấy token MỚI');
+async function boot(){
+  log('info','=== BOT KHỞI ĐỘNG ===');
+  log('info','Token: '+TOKEN.slice(0,15)+'...'+TOKEN.slice(-6));
+  log('info','Master: '+MASTER);
+  setToggle('wait','⏳ Đang kết nối...');
+  
+  log('info','Bước 1: Xóa webhook cũ...');
+  var dw = await tgCall('deleteWebhook',{drop_pending_updates:false});
+  log(dw.ok?'ok':'err', (dw.ok?'✅ Xóa webhook OK':'❌ Xóa webhook FAIL: '+JSON.stringify(dw)));
+  
+  log('info','Bước 2: Test getMe...');
+  var me = await tgCall('getMe');
+  if(!me || !me.ok){
+    log('err','❌ TOKEN SAI: '+JSON.stringify(me));
+    setToggle('off','❌ Token sai');
+    return;
   }
-});
+  log('ok','✅ Bot OK: @'+me.result.username+' (id='+me.result.id+')');
+  
+  log('info','Bước 3: Đăng ký commands...');
+  var sc = await tgCall('setMyCommands',{commands:[
+    {command:'newkey',description:'Quy trình tạo Key VIP 4 loại mới'},
+    {command:'taokey',description:'Khởi động quy trình tạo Key VIP'},
+    {command:'chon2dangkeymuontao',description:'Chọn 1 trong 4 loại Tiền Tố Key'},
+    {command:'khoakey',description:'Khóa mã Key VIP'},
+    {command:'mokhoakey',description:'Mở khóa mã Key VIP'},
+    {command:'xoakey',description:'Xóa mã Key khỏi Server'},
+    {command:'listkey',description:'Xem danh sách Key'},
+    {command:'capquyenadmin',description:'Cấp quyền Admin Telegram'},
+    {command:'thuhoiquyenadmin',description:'Thu hồi quyền Admin Telegram'},
+    {command:'help',description:'Xem Menu Hướng Dẫn'}
+  ]});
+  log(sc&&sc.ok?'ok':'warn',(sc&&sc.ok?'✅ Đăng ký commands OK':'⚠ Đăng ký commands: '+JSON.stringify(sc)));
+  
+  log('ok','🚀 BẮT ĐẦU POLLING — gửi /newkey cho bot để test');
+  setToggle('', '🤖 BOT Online');
+  startPolling();
+}
 
-var off=0;
+/* ─── POLLING ─── */
+var off = 0;
+var errorCount = 0;
 async function startPolling(){
   while(true){
     try{
-      var r=await tgCall('getUpdates',{offset:off,timeout:10});
-      if(r&&r.ok&&r.result&&r.result.length){
-        for(var i=0;i<r.result.length;i++){
-          var u=r.result[i];
-          off=u.update_id+1;
-          try{
-            if(u.message)await onMsg(u.message);
-            if(u.callback_query)await onCB(u.callback_query);
-          }catch(e){console.warn('[DEXTER] handler error:',e)}
+      var r = await tgCall('getUpdates',{offset:off,timeout:10});
+      if(r && r.ok && r.result){
+        errorCount = 0;
+        if(r.result.length > 0){
+          for(var i=0;i<r.result.length;i++){
+            var u = r.result[i];
+            off = u.update_id + 1;
+            log('ok','📩 UPDATE #'+u.update_id);
+            try{
+              if(u.message) await onMsg(u.message);
+              if(u.callback_query) await onCB(u.callback_query);
+            }catch(e){ log('err','Handler lỗi: '+e.message); }
+          }
         }
       } else if(r && !r.ok){
-        console.error('[DEXTER] Polling error:', r.description);
+        errorCount++;
+        if(r.error_code === 409){
+          log('err','❌ 409 CONFLICT — CÓ BOT/TAB KHÁC CHẠY CÙNG TOKEN!');
+          log('err','→ Đóng tất cả tab shop khác + tắt Node.js nếu đang chạy');
+          setToggle('off','❌ Trùng tab (409)');
+          await new Promise(function(x){setTimeout(x,5000)});
+          continue;
+        } else {
+          log('err','Poll lỗi: '+JSON.stringify(r));
+          setToggle('off','❌ Lỗi '+r.error_code);
+        }
       }
-    }catch(e){}
-    await new Promise(function(rs){setTimeout(rs,1000)});
+    }catch(e){
+      errorCount++;
+      if(errorCount <= 3) log('err','Poll exception: '+e.message);
+    }
+    await new Promise(function(x){setTimeout(x,1000)});
   }
 }
 
-})(window);
+/* ─── VISIBILITY ─── */
+document.addEventListener('visibilitychange', function(){
+  if(document.hidden){
+    log('warn','Tab bị ẩn — bot tạm dừng poll (mở lại tab để bot chạy tiếp)');
+    setToggle('wait','⏸ Tab ẩn');
+  } else {
+    log('info','Tab hiện lại — bot tiếp tục');
+    setToggle('','🤖 BOT Online');
+  }
+});
+
+/* ─── START ─── */
+boot();
+
+})();
 </script>
 </body>
 </html>
