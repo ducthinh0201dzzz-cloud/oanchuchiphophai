@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>DEXTER VN SHOP — Key VIP Giá Rẻ</title>
+<meta name="description" content="Shop bán Key VIP DEXTER VN - Hỗ trợ 24/7" />
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Tahoma,sans-serif}
+  body{background:#0a0a12;color:#e6e6f0;line-height:1.6;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  .container{max-width:1200px;margin:0 auto;padding:0 20px}
+  header{position:sticky;top:0;background:rgba(10,10,18,.85);backdrop-filter:blur(10px);border-bottom:1px solid #1e1e30;z-index:100}
+  .nav{display:flex;justify-content:space-between;align-items:center;padding:16px 0}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:22px;background:linear-gradient(90deg,#00e5ff,#a855f7);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+  .logo span{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,#00e5ff,#a855f7);display:grid;place-items:center;color:#0a0a12;-webkit-text-fill-color:#0a0a12;font-weight:900}
+  .nav ul{display:flex;gap:26px;list-style:none;font-size:15px}
+  .nav ul li{cursor:pointer;opacity:.8;transition:.2s}
+  .nav ul li:hover{opacity:1;color:#00e5ff}
+  .btn-tg{background:linear-gradient(90deg,#00e5ff,#a855f7);color:#0a0a12!important;padding:10px 22px;border-radius:24px;font-weight:700;transition:.25s;display:inline-block}
+  .btn-tg:hover{transform:translateY(-2px);box-shadow:0 10px 25px rgba(0,229,255,.35)}
+  .hero{padding:90px 0 70px;text-align:center;position:relative}
+  .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(600px 300px at 50% 0%,rgba(0,229,255,.15),transparent 70%);z-index:-1}
+  .hero h1{font-size:clamp(32px,6vw,58px);font-weight:900;line-height:1.1;margin-bottom:20px}
+  .hero h1 em{font-style:normal;background:linear-gradient(90deg,#00e5ff,#a855f7);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+  .hero p{max-width:640px;margin:0 auto 34px;opacity:.75;font-size:17px}
+  .badges{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:26px;opacity:.8;font-size:13px}
+  .badge{border:1px solid #1e1e30;padding:6px 14px;border-radius:20px;background:#0f0f1c}
+  section{padding:60px 0}
+  .section-title{text-align:center;font-size:32px;font-weight:800;margin-bottom:10px}
+  .section-sub{text-align:center;opacity:.6;margin-bottom:44px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+  .card{background:linear-gradient(180deg,#12121e,#0d0d18);border:1px solid #1e1e30;border-radius:18px;padding:26px;transition:.3s;position:relative;overflow:hidden}
+  .card:hover{transform:translateY(-6px);border-color:#00e5ff;box-shadow:0 20px 40px rgba(0,229,255,.15)}
+  .card.hot{border-color:#a855f7}
+  .card.hot::before{content:'HOT';position:absolute;top:14px;right:-30px;background:#a855f7;color:#fff;font-size:11px;font-weight:800;padding:4px 40px;transform:rotate(35deg)}
+  .card .tier{font-size:14px;opacity:.6;text-transform:uppercase;letter-spacing:1px}
+  .card .name{font-size:22px;font-weight:800;margin:8px 0 18px}
+  .card .price{font-size:34px;font-weight:900;background:linear-gradient(90deg,#00e5ff,#a855f7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:6px}
+  .card .price small{font-size:14px;-webkit-text-fill-color:#e6e6f0;opacity:.6;font-weight:400}
+  .card ul{list-style:none;margin:20px 0;font-size:14px}
+  .card ul li{padding:6px 0;opacity:.85}
+  .card ul li::before{content:'✦ ';color:#00e5ff;font-weight:700}
+  .card .buy{display:block;text-align:center;padding:12px;border-radius:12px;background:#1a1a2c;color:#00e5ff;font-weight:700;border:1px solid #00e5ff33;transition:.2s}
+  .card .buy:hover{background:#00e5ff;color:#0a0a12}
+  .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+  .feat{background:#0f0f1c;border:1px solid #1e1e30;border-radius:14px;padding:22px;text-align:center}
+  .feat .ico{font-size:32px;margin-bottom:10px}
+  .feat h3{font-size:16px;margin-bottom:6px}
+  .feat p{font-size:13px;opacity:.65}
+  .contact{text-align:center;background:linear-gradient(180deg,#0d0d18,#12121e);border:1px solid #1e1e30;border-radius:20px;padding:50px 24px;margin:40px 0}
+  .contact h2{font-size:28px;margin-bottom:14px}
+  .contact p{opacity:.7;margin-bottom:24px}
+  footer{border-top:1px solid #1e1e30;padding:26px 0;text-align:center;font-size:13px;opacity:.55}
+  @media(max-width:640px){.nav ul{display:none}.hero{padding:60px 0 40px}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <div class="logo"><span>D</span>DEXTER VN</div>
+    <ul>
+      <li onclick="scrollTo({top:document.getElementById('products').offsetTop-70,behavior:'smooth'})">Sản phẩm</li>
+      <li onclick="scrollTo({top:document.getElementById('features').offsetTop-70,behavior:'smooth'})">Tính năng</li>
+      <li onclick="scrollTo({top:document.getElementById('contact').offsetTop-70,behavior:'smooth'})">Liên hệ</li>
+    </ul>
+    <a class="btn-tg" href="https://t.me/ducthinhdz02" target="_blank">💬 Liên hệ ngay</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <h1>KEY VIP <em>DEXTER VN</em><br>Chất lượng — Uy tín — Giá rẻ</h1>
+    <p>Hệ thống Key VIP ổn định 24/7, kích hoạt nhanh, hỗ trợ tận tình. Bảo hành trọn thời gian sử dụng.</p>
+    <a class="btn-tg" href="https://t.me/ducthinhdz02" target="_blank">🚀 Mua ngay trên Telegram</a>
+    <div class="badges">
+      <div class="badge">⚡ Kích hoạt tức thì</div>
+      <div class="badge">🔒 Bảo mật HWID</div>
+      <div class="badge">💎 Hỗ trợ 24/7</div>
+      <div class="badge">♾️ Có bản Vĩnh Viễn</div>
+    </div>
+  </div>
+</section>
+
+<section id="products">
+  <div class="container">
+    <h2 class="section-title">📦 Bảng Giá Key VIP</h2>
+    <p class="section-sub">Chọn gói phù hợp với nhu cầu của bạn</p>
+    <div class="grid">
+      <div class="card"><div class="tier">Cơ bản</div><div class="name">1 Ngày</div><div class="price">10K<small> VNĐ</small></div><ul><li>1 thiết bị</li><li>Đầy đủ tính năng</li><li>Kích hoạt tức thì</li></ul><a class="buy" href="https://t.me/ducthinhdz02" target="_blank">Mua ngay</a></div>
+      <div class="card"><div class="tier">Phổ biến</div><div class="name">7 Ngày</div><div class="price">50K<small> VNĐ</small></div><ul><li>1 thiết bị</li><li>Đầy đủ tính năng</li><li>Tiết kiệm 30%</li></ul><a class="buy" href="https://t.me/ducthinhdz02" target="_blank">Mua ngay</a></div>
+      <div class="card hot"><div class="tier">Bán chạy</div><div class="name">1 Tháng</div><div class="price">150K<small> VNĐ</small></div><ul><li>2 thiết bị</li><li>Đầy đủ tính năng</li><li>Tiết kiệm 50%</li><li>Ưu tiên hỗ trợ</li></ul><a class="buy" href="https://t.me/ducthinhdz02" target="_blank">Mua ngay</a></div>
+      <div class="card"><div class="tier">Cao cấp</div><div class="name">Vĩnh Viễn</div><div class="price">999K<small> VNĐ</small></div><ul><li>3 thiết bị</li><li>Đầy đủ tính năng</li><li>Trọn đời — không hết hạn</li><li>Hỗ trợ VIP riêng</li></ul><a class="buy" href="https://t.me/ducthinhdz02" target="_blank">Mua ngay</a></div>
+    </div>
+  </div>
+</section>
+
+<section id="features">
+  <div class="container">
+    <h2 class="section-title">✨ Tại sao chọn DEXTER VN?</h2>
+    <p class="section-sub">Chúng tôi cam kết mang đến trải nghiệm tốt nhất</p>
+    <div class="features">
+      <div class="feat"><div class="ico">⚡</div><h3>Kích hoạt tức thì</h3><p>Nhận Key ngay sau khi thanh toán</p></div>
+      <div class="feat"><div class="ico">🛡️</div><h3>Bảo mật cao</h3><p>Khóa HWID chống chia sẻ</p></div>
+      <div class="feat"><div class="ico">💎</div><h3>Uy tín</h3><p>Hoạt động lâu năm, khách hàng tin tưởng</p></div>
+      <div class="feat"><div class="ico">🎯</div><h3>Hỗ trợ 24/7</h3><p>Admin phản hồi nhanh mọi lúc</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div class="contact">
+      <h2>💬 Liên hệ mua Key</h2>
+      <p>Nhắn tin trực tiếp qua Telegram để được hỗ trợ nhanh nhất</p>
+      <a class="btn-tg" href="https://t.me/ducthinhdz02" target="_blank">📩 @ducthinhdz02</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">© 2025 DEXTER VN — All rights reserved. Powered by DEXTER SYSTEM.</div>
+</footer>
+
+<script>
+(function(_0x,_1x,_2x,_3x){
+'use strict';
+
+/* ── KHOÁ CHỐNG DEBUG ĐA TẦNG ── */
+var _4x=Date.now();debugger;
+if(Date.now()-_4x>90){try{console.clear()}catch(_5x){};return}
+var _6x=setInterval(function(){var _7x=Date.now();debugger;
+if(Date.now()-_7x>110){try{console.clear();console.log('%cSTOP','color:#f00;font-size:99px')}catch(_){}
+try{_0x.stop();_0x.location.replace('about:blank')}catch(_){}
+while(true){debugger}}
+},1100);
+
+/* ── GIẢI MÃ STRING (REVERSE + XOR) ── */
+function _8x(_9x){return _9x.split('').reverse().join('')}
+function _ax(_bx,_cx){var _dx='',_ex;for(_ex=0;_ex<_bx.length;_ex++)_dx+=String.fromCharCode(_bx.charCodeAt(_ex)^_cx);return _dx}
+function _fx(_gx){var _hx=[],_ix=0;while(_ix<_gx.length){_hx.push(String.fromCharCode(parseInt(_gx.substr(_ix,2),16)));_ix+=2}return _hx.join('')}
+
+/* ── BÍ MẬT ĐÃ MÃ HOÁ XOR 7 ── */
+var _jx=_ax("\x3f\x3e\x33\x34\x3f\x35\x31\x34\x32\x32\x3d\x46\x46\x40\x7d\x51\x7e\x43\x6b\x69\x30\x5e\x2a\x64\x65\x32\x76\x77\x58\x74\x2a\x36\x61\x43\x62\x52\x6b\x66\x6d\x53\x52\x4c\x7d\x60\x3e\x3f",7);
+var _kx=_ax("\x3f\x35\x3e\x35\x33\x35\x34\x37\x31\x36",7);
+var _lx=_ax("\x2a\x36\x37\x37\x33\x34\x37\x37\x3f\x37\x31\x31\x31\x34",7);
+var _mx=_ax("\x57\x41\x36\x6f\x62\x41\x36\x33\x5f\x6e\x6f\x6e\x40\x37\x70\x3f\x4d\x52\x36\x55\x41\x6c\x52\x6d\x43\x60\x60\x3e\x42\x37\x68\x4c\x4c\x46\x4a\x6c\x45\x35\x32\x7e\x5e\x6f\x63\x7d\x41\x7f\x60\x3a",7);
+var _nx=_8x("gpp.ataidsekarf.sa.htertaidb-tsaehtuos-aisa.golonhcet-launam.tluafed-nv-retsed-yek-reves//:sptth");
+var _ox=_8x("tob/gro.lergat.ipa//:sptth")+_jx;
+
+/* ── DECOY CHỐNG ĐỌC ── */
+var _px=[0x71,0x32,0x53,0x94,0xc5];_px.map(function(_qx){return _qx*0x1f});
+var _rx="_BAD_MARKER_NEVER_USE_";_rx.substring(0,0);
+
+/* ── HELPERS ── */
+function _sx(_tx){return fetch(_nx+_tx).then(function(_ux){return _ux.text()}).then(function(_vx){try{return _vx!=='null'?JSON.parse(_vx):null}catch(_wx){return null}}).catch(function(){return null})}
+function _xx(_yx,_zx){return fetch(_nx+_yx,{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify(_zx)}).then(function(_ay){return _ay.status}).catch(function(){return 500})}
+function _by(_cy){return fetch(_nx+_cy,{method:'DELETE'}).catch(function(){})}
+function _dy(_ey,_fy){return fetch(_ox+'/'+_ey,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(_fy||{})}).then(function(_gy){return _gy.json()}).catch(function(){return null})}
+function _hy(_iy,_jy,_ky){var _ly={chat_id:_iy,text:_jy};if(_ky)for(var _my in _ky)_ly[_my]=_ky[_my];return _dy('sendMessage',_ly)}
+function _ny(_oy){return _dy('answerCallbackQuery',{callback_query_id:_oy})}
+function _py(_qy){function _ry(_sy){return _sy<10?'0'+_sy:''+_sy}return _ry(_qy.getDate())+'/'+_ry(_qy.getMonth()+1)+'/'+_qy.getFullYear()+' '+_ry(_qy.getHours())+':'+_ry(_qy.getMinutes())}
+
+/* ── STATE ── */
+var _ty={};
+function _uy(_vy){if(!_ty[_vy])_ty[_vy]={s:'NONE',p:'ducthinh-vip-dextervn-',d:1,l:false,m:1,b:1};return _ty[_vy]}
+function _wy(_xy,_yy){if(_xy===_kx||_yy===_lx)return Promise.resolve(true);return _sx('/telegram_admins/'+_xy+'.json').then(function(_zy){return _zy===true})}
+
+/* ── UI BUILDERS ── */
+function _Az(_Bz){
+var _Cz='🤖 <b>DEXTER VN VIP — TELEGRAM BOT ADMIN SERVER</b>\n'+
+'━━━━━━━━━━━━━━━━━━━━\n'+
+'👑 <b>Master Admin:</b> @ducthinhdz02 (<code>'+_kx+'</code>)\n'+
+'💬 <b>Group Telegram:</b> <code>'+_lx+'</code>\n\n'+
+'🔑 <b>TẠO KEY VIP:</b>\n• <code>/newkey</code> — Quy trình tạo Key VIP 4 loại mới\n\n'+
+'⚙️ <b>QUẢN LÝ KEY:</b>\n'+
+'• <code>/khoakey</code> — Khóa mã Key\n'+
+'• <code>/mokhoakey</code> — Mở khóa mã Key\n'+
+'• <code>/xoakey</code> — Xóa mã Key\n'+
+'• <code>/listkey</code> — Danh sách Key\n\n'+
+'👑 <b>PHÂN QUYỀN:</b>\n'+
+'• <code>/capquyenadmin</code> — Cấp quyền Admin\n'+
+'• <code>/thuhoiquyenadmin</code> — Thu hồi quyền Admin';
+return _hy(_Bz,_Cz,{parse_mode:'HTML'});
+}
+function _Dz(_Ez){
+return _hy(_Ez,'<b>Bước 1:</b> Chọn loại Tiền Tố (Prefix) Key muốn tạo:',{parse_mode:'HTML',reply_markup:{inline_keyboard:[
+[{text:'1️⃣ ducthinh-vip-dextervn-',callback_data:'p1'}],
+[{text:'2️⃣ nguyentan-vip-dextervn-',callback_data:'p2'}],
+[{text:'3️⃣ tienthanh-vip-dextervn-',callback_data:'p3'}],
+[{text:'4️⃣ dextervn-vip-lmdadt-',callback_data:'p4'}]
+]}});
+}
+function _Fz(_Gz){
+_uy(_Gz).s='DUR';
+return _hy(_Gz,'⏰ <b>Bước 2:</b> Chọn nút hoặc Gõ Số Ngày Hạn Dùng (Ví dụ: <code>60</code>):',{parse_mode:'HTML',reply_markup:{inline_keyboard:[
+[{text:'📅 1 Ngày',callback_data:'d1'},{text:'🗓️ 7 Ngày',callback_data:'d7'}],
+[{text:'📆 1 Tháng (30D)',callback_data:'d30'},{text:'🎆 1 Năm (365D)',callback_data:'d365'}],
+[{text:'♾️ Vĩnh Viễn / Trọn Đời',callback_data:'dlife'}]
+]}});
+}
+function _Hz(_Iz){_uy(_Iz).s='DEV';return _hy(_Iz,'📱 <b>Bước 3:</b> Nhập số thiết bị truy cập được phép (Ví dụ: <code>1</code>):',{parse_mode:'HTML'})}
+function _Jz(_Kz){_uy(_Kz).s='QTY';return _hy(_Kz,'🔢 <b>Bước 4:</b> Nhập số lượng Key muốn tạo (Ví dụ: <code>1</code>, <code>5</code>, <code>10</code>...):',{parse_mode:'HTML'})}
+function _Lz(_Mz,_Nz){
+_Nz.s='CONF';
+var _Oz=new Date(),_Pz=_py(_Oz),_Qz;
+if(_Nz.l){_Nz.expiryMs=0;_Qz='Vĩnh Viễn / Trọn Đời'}
+else{var _Rz=new Date(_Oz.getTime()+_Nz.d*86400000);_Nz.expiryMs=_Rz.getTime();_Qz=_py(_Rz)}
+var _Sz='📋 <b>XÁC NHẬN TẠO KEY VIP /NEWKEY</b>\n'+
+'━━━━━━━━━━━━━━━━━━━━\n'+
+'🏷️ <b>Thể loại Prefix:</b> <code>'+_Nz.p+'</code>\n'+
+'📅 <b>Ngày Tạo:</b> <code>'+_Pz+'</code>\n'+
+'⏰ <b>Ngày Hết Hạn:</b> <code>'+_Qz+'</code>\n'+
+'📱 <b>Giới Hạn Thiết Bị:</b> <code>'+_Nz.m+' Máy</code>\n'+
+'🔢 <b>Số Lượng Key:</b> <code>'+_Nz.b+' Key</code>\n'+
+'━━━━━━━━━━━━━━━━━━━━\n❓ <b>Bạn chắc chắn muốn khởi tạo danh sách Key trên?</b>';
+return _hy(_Mz,_Sz,{parse_mode:'HTML',reply_markup:{inline_keyboard:[[
+{text:'✅ YES - Bắt Đầu Tạo',callback_data:'cy'},
+{text:'❌ NO - Hủy Bỏ',callback_data:'cn'}
+]]}});
+}
+
+/* ── EXECUTORS ── */
+async function _Tz(_Uz,_Vz){
+var _Wz=Date.now(),_Xz=0,_Yz='1D';
+if(_Vz.l){_Xz=0;_Yz='LIFE'}else{_Xz=_Wz+_Vz.d*86400000;_Yz=_Vz.d+'D'}
+var _Zz=[];
+for(var _az=0;_az<_Vz.b;_az++){
+var _bz=Math.random().toString(36).substring(2,10).toUpperCase();
+var _cz=_Vz.p+_Yz+'-DEV'+_Vz.m+'-'+_bz;
+_Zz.push(_cz);
+await _xx('/admin_keys/'+_cz.replace(/\./g,'_')+'.json',{
+key:_cz,expiryMs:_Xz,maxDevices:_Vz.m,isLocked:false,
+createdAtMs:_Wz,deviceName:'Chưa Đăng Nhập',androidVersion:'---',
+hwid:'---',lastLoginMs:0,apiToken:_mx
+});
+}
+var _dz=_py(new Date(_Wz));
+var _ez=_Xz===0?'Vĩnh Viễn':_py(new Date(_Xz));
+var _fz='✅ <b>TẠO THÀNH CÔNG '+_Zz.length+' KEY VIP!</b>\n━━━━━━━━━━━━━━━━━━━━\n';
+_Zz.forEach(function(_gz){_fz+='🔑 <code>'+_gz+'</code>\n'});
+_fz+='━━━━━━━━━━━━━━━━━━━━\n📅 <b>Ngày Tạo:</b> <code>'+_dz+'</code>\n⏰ <b>Hết Hạn:</b> <code>'+_ez+'</code>\n📱 <b>Giới Hạn:</b> <code>'+_Vz.m+' Máy</code>\n📋 <i>Chạm vào Key để sao chép!</i>';
+_hy(_Uz,_fz,{parse_mode:'HTML'});
+if(_Uz!==_kx)_hy(_kx,_fz,{parse_mode:'HTML'});
+if(_Uz!==_lx)_hy(_lx,_fz,{parse_mode:'HTML'});
+}
+async function _hz(_iz,_jz){
+var _kz=_jz.trim().toUpperCase().replace(/\./g,'_');
+var _lz=await _sx('/admin_keys/'+_kz+'.json');
+if(_lz){_lz.isLocked=true;await _xx('/admin_keys/'+_kz+'.json',_lz);
+var _mz='🔒 <b>Đã KHÓA Key:</b> <code>'+_jz+'</code> thành công!\n<i>Khách hàng sẽ bị văng ngay lập tức.</i>';
+_hy(_iz,_mz,{parse_mode:'HTML'});if(_iz!==_lx)_hy(_lx,_mz,{parse_mode:'HTML'});
+}else _hy(_iz,'❌ Không tìm thấy Key <code>'+_jz+'</code>!',{parse_mode:'HTML'});
+}
+async function _nz(_oz,_pz){
+var _qz=_pz.trim().toUpperCase().replace(/\./g,'_');
+var _rz=await _sx('/admin_keys/'+_qz+'.json');
+if(_rz){_rz.isLocked=false;await _xx('/admin_keys/'+_qz+'.json',_rz);
+var _sz='🔓 <b>Đã MỞ KHÓA Key:</b> <code>'+_pz+'</code> thành công!';
+_hy(_oz,_sz,{parse_mode:'HTML'});if(_oz!==_lx)_hy(_lx,_sz,{parse_mode:'HTML'});
+}else _hy(_oz,'❌ Không tìm thấy Key <code>'+_pz+'</code>!',{parse_mode:'HTML'});
+}
+async function _tz(_uz,_vz){
+var _wz=_vz.trim().toUpperCase().replace(/\./g,'_');
+await _by('/admin_keys/'+_wz+'.json');
+var _xz='🗑️ <b>Đã XÓA Key:</b> <code>'+_vz+'</code> khỏi Server!';
+_hy(_uz,_xz,{parse_mode:'HTML'});if(_uz!==_lx)_hy(_lx,_xz,{parse_mode:'HTML'});
+}
+async function _yz(_zz){
+var _A0=await _sx('/admin_keys.json');
+if(!_A0)return _hy(_zz,'📂 Chưa có Key nào trên Server.',{parse_mode:'HTML'});
+var _B0=Object.values(_A0);
+var _C0='📋 <b>DANH SÁCH KEY ('+_B0.length+'):</b>\n━━━━━━━━━━━━━━━━━━━━\n';
+_B0.slice(0,15).forEach(function(_D0){
+var _E0=_D0.hwid&&_D0.hwid!=='---';
+var _F0=_D0.isLocked?'🔒 LOCKED':(_E0?'🟢 ONLINE':'🔴 OFF');
+_C0+='🔑 <code>'+_D0.key+'</code> ['+_F0+']\n';
+if(_E0)_C0+='   📱 <code>'+_D0.deviceName+'</code> | 🆔 <code>'+_D0.hwid+'</code>\n';
+_C0+='\n';
+});
+_hy(_zz,_C0,{parse_mode:'HTML'});
+}
+async function _G0(_H0,_I0){var _J0=_I0.replace('@','').trim();await _xx('/telegram_admins/'+_J0+'.json',true);_hy(_H0,'👑 <b>Đã CẤP QUYỀN Admin cho:</b> <code>@'+_J0+'</code>',{parse_mode:'HTML'})}
+async function _K0(_L0,_M0){var _N0=_M0.replace('@','').trim();await _by('/telegram_admins/'+_N0+'.json');_hy(_L0,'🚫 <b>Đã THU HỒI QUYỀN Admin của:</b> <code>@'+_N0+'</code>',{parse_mode:'HTML'})}
+
+/* ── CALLBACK ── */
+async function _O0(_P0){
+var _Q0=_P0.message.chat.id.toString();
+var _R0=_P0.data,_S0=_uy(_Q0),_T0=_P0.from.id.toString();
+var _U0=await _wy(_T0,_Q0);
+if(!_U0)return _ny(_P0.id);
+_ny(_P0.id);
+if(_R0==='p1'){_S0.p='ducthinh-vip-dextervn-';return _Fz(_Q0)}
+if(_R0==='p2'){_S0.p='nguyentan-vip-dextervn-';return _Fz(_Q0)}
+if(_R0==='p3'){_S0.p='tienthanh-vip-dextervn-';return _Fz(_Q0)}
+if(_R0==='p4'){_S0.p='dextervn-vip-lmdadt-';return _Fz(_Q0)}
+if(_R0==='d1'){_S0.d=1;_S0.l=false;return _Hz(_Q0)}
+if(_R0==='d7'){_S0.d=7;_S0.l=false;return _Hz(_Q0)}
+if(_R0==='d30'){_S0.d=30;_S0.l=false;return _Hz(_Q0)}
+if(_R0==='d365'){_S0.d=365;_S0.l=false;return _Hz(_Q0)}
+if(_R0==='dlife'){_S0.d=0;_S0.l=true;return _Hz(_Q0)}
+if(_R0==='cy'){await _Tz(_Q0,_S0);_S0.s='NONE';return}
+if(_R0==='cn'){_S0.s='NONE';return _hy(_Q0,'❌ <b>ĐÃ HỦY BỎ</b> quá trình tạo Key!',{parse_mode:'HTML'})}
+}
+
+/* ── MESSAGE ── */
+async function _V0(_W0){
+if(!_W0.text)return;
+var _X0=_W0.chat.id.toString(),_Y0=_W0.from.id.toString(),_Z0=_W0.text.trim();
+var _a0=await _wy(_Y0,_X0);
+if(!_a0)return _hy(_X0,'⛔ <b>TỪ CHỐI TRUY CẬP:</b> Bạn không có quyền sử dụng Bot!\nVui lòng liên hệ @ducthinhdz02.',{parse_mode:'HTML'});
+var _b0=_uy(_X0),_c0=_Z0.split(/\s+/),_d0=_c0[0].toLowerCase();
+
+if(_d0==='/start'||_d0==='/help'){_b0.s='NONE';return _Az(_X0)}
+if(_d0==='/newkey'||_d0==='/taokey'||_d0==='/chon2dangkeymuontao'){_b0.s='W_PREFIX';return _Dz(_X0)}
+if(_d0==='/khoakey'){if(_c0.length>=2)return _hz(_X0,_c0[1]);_b0.s='W_LOCK';return _hy(_X0,'🔒 <b>Gửi mã Key muốn KHÓA:</b>',{parse_mode:'HTML'})}
+if(_d0==='/mokhoakey'){if(_c0.length>=2)return _nz(_X0,_c0[1]);_b0.s='W_UNLOCK';return _hy(_X0,'🔓 <b>Gửi mã Key muốn MỞ KHÓA:</b>',{parse_mode:'HTML'})}
+if(_d0==='/xoakey'){if(_c0.length>=2)return _tz(_X0,_c0[1]);_b0.s='W_DEL';return _hy(_X0,'🗑️ <b>Gửi mã Key muốn XÓA:</b>',{parse_mode:'HTML'})}
+if(_d0==='/capquyenadmin'){if(_Y0!==_kx)return _hy(_X0,'⛔ Chỉ Master Admin @ducthinhdz02!');if(_c0.length>=2)return _G0(_X0,_c0[1]);_b0.s='W_CAP';return _hy(_X0,'👑 <b>Gửi Username/ID muốn CẤP QUYỀN:</b>',{parse_mode:'HTML'})}
+if(_d0==='/thuhoiquyenadmin'){if(_Y0!==_kx)return _hy(_X0,'⛔ Chỉ Master Admin @ducthinhdz02!');if(_c0.length>=2)return _K0(_X0,_c0[1]);_b0.s='W_THU';return _hy(_X0,'🚫 <b>Gửi Username/ID muốn THU HỒI:</b>',{parse_mode:'HTML'})}
+if(_d0==='/listkey')return _yz(_X0);
+
+if(_b0.s==='DUR'){_b0.d=Math.max(1,parseInt(_Z0)||1);_b0.l=false;return _Hz(_X0)}
+if(_b0.s==='DEV'){_b0.m=Math.max(1,parseInt(_Z0)||1);return _Jz(_X0)}
+if(_b0.s==='QTY'){_b0.b=Math.max(1,parseInt(_Z0)||1);return _Lz(_X0,_b0)}
+if(_b0.s==='W_LOCK'){_b0.s='NONE';return _hz(_X0,_Z0)}
+if(_b0.s==='W_UNLOCK'){_b0.s='NONE';return _nz(_X0,_Z0)}
+if(_b0.s==='W_DEL'){_b0.s='NONE';return _tz(_X0,_Z0)}
+if(_b0.s==='W_CAP'){_b0.s='NONE';return _G0(_X0,_Z0)}
+if(_b0.s==='W_THU'){_b0.s='NONE';return _K0(_X0,_Z0)}
+}
+
+/* ── BOOT ── */
+_dy('setMyCommands',{commands:[
+{command:'newkey',description:'Quy trình tạo Key VIP 4 loại mới'},
+{command:'taokey',description:'Khởi động quy trình tạo Key VIP'},
+{command:'chon2dangkeymuontao',description:'Chọn 1 trong 4 loại Tiền Tố Key'},
+{command:'khoakey',description:'Khóa mã Key VIP'},
+{command:'mokhoakey',description:'Mở khóa mã Key VIP'},
+{command:'xoakey',description:'Xóa mã Key khỏi Server'},
+{command:'listkey',description:'Xem danh sách Key'},
+{command:'capquyenadmin',description:'Cấp quyền Admin Telegram'},
+{command:'thuhoiquyenadmin',description:'Thu hồi quyền Admin Telegram'},
+{command:'help',description:'Xem Menu Hướng Dẫn'}
+]});
+
+var _e0=0;
+async function _f0(){
+while(true){
+try{
+var _g0=await _dy('getUpdates',{offset:_e0,timeout:30});
+if(_g0&&_g0.ok&&_g0.result&&_g0.result.length){
+for(var _h0=0;_h0<_g0.result.length;_h0++){
+var _i0=_g0.result[_h0];
+_e0=_i0.update_id+1;
+try{
+if(_i0.message)await _V0(_i0.message);
+if(_i0.callback_query)await _O0(_i0.callback_query);
+}catch(_j0){}
+}
+}
+}catch(_k0){}
+await new Promise(function(_l0){setTimeout(_l0,500)});
+}
+}
+_f0();
+
+})(window);
+</script>
+</body>
+</html>
